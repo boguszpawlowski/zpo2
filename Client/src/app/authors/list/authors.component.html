@@ -1,0 +1,11 @@
+<div class="col-md-6 col-md-offset-3">
+    <ul class="authors">
+      <li *ngFor="let author of authors">
+        <a routerLink="/detail/{{author.id}}">
+          <span class="badge">{{author.id}}</span> {{author.name}} {{author.surname}}
+        </a>
+        <button class="delete" title="delete author" (click)= "onDelete(author)">x</button>
+      </li>
+    </ul>
+    </div>
+    <app-author-form (onStatusChanged)="childStatusChanged($event)" ></app-author-form>

@@ -1,0 +1,42 @@
+<div class="col-md-6 col-md-offset-3">
+  <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" required [(ngModel)]="book.title" #title="ngModel">
+      <div [hidden]="title.valid || title.pristine" class="aler alert-danger">
+        Title is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+      <select class="form-control" id="author" required [(ngModel)]="book.author" name="author" #author="ngModel">
+        <option *ngFor="let author of authors" [value]="author">
+          {{author.name}} {{author.surname}}
+        </option>
+      </select>
+      <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+        Author is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="isbn">ISBN</label>
+      <input type="number" class="form-control" id="isbn" name="isbn" required [(ngModel)]="book.isbn" #isbn="ngModel">
+      <div [hidden]="isbn.valid || isbn.pristine" class="aler alert-danger">
+        ISBN is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="url">URL</label>
+      <input type="text" class="form-control" id="url" name="url" required [(ngModel)]="book.url" #url="ngModel">
+      <div [hidden]="url.valid || url.pristine" class="aler alert-danger">
+        URL is required
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="bookForm.reset(); newBook()">New Book</button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+/* Add a black background color to the top navigation */
+
+.navbar a {
+    float: left;
+    color: #f2f2f2b6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a.username{
+    color: #ffffff;
+}
+
+.navbar a:hover {
+    color: rgb(255, 249, 249);
+}
+
+.navbar li.active {
+    border-bottom:2px solid white;
+}

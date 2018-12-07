@@ -1,0 +1,22 @@
+<div class="col-md-6 col-md-offset-3">
+  <form (ngSubmit)="onSubmit()" #authorForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="author.name" #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="aler alert-danger">
+        Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="surname">Surname</label>
+      <input type="text" class="form-control" id="surname" name="surname" required [(ngModel)]="author.surname" #surname="ngModel">
+      <div [hidden]="surname.valid || surname.pristine" class="aler alert-danger">
+        Surname is required
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!authorForm.form.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="newAuthor(); authorForm.reset()">New Author</button>
+  </form>
+</div>

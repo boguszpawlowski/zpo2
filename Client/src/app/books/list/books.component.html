@@ -1,0 +1,12 @@
+<div class="col-md-6 col-md-offset-3">
+  <ul class="books">
+    <li *ngFor="let book of books" (click)="onSelect(book)">
+      <a >
+        <span class="badge">{{book.id}}</span> {{book.title}}
+      </a>
+      <button class="delete" title="delete book" (click)="onDelete(book)">x</button>
+      <button class="rent" title="rent a book" (clicl)="onRent(book)">Rent</button>
+    </li>
+  </ul>
+</div>
+<app-book-form (onStatusChanged)="onStatusChanged($event)" [selectedBook]="selectedBook" ></app-book-form>
